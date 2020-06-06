@@ -3,4 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse('First Page create successful')
+    return render(request, 'index.html')
+
+def info(request):
+    return render(request, 'info.html')

@@ -20,5 +20,6 @@ from CueApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index),
+    path('info',views.info),
 
 ]
