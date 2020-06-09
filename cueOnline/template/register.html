@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<form>
+    <br>
+    <h2>สมัครสมาชิกร้านค้า</h2>
+    <br>
+    <br>
+
+    <!-- ชื่อ นามสกุล -->
+  <div class="row">
+    <div class="col">
+        <label for="formGroupExampleInput2">ชื่อ</label>
+      <input type="text" class="form-control" placeholder="First name">
+    </div>
+    <div class="col">
+        <label for="formGroupExampleInput2">นามสกุล</label>
+      <input type="text" class="form-control" placeholder="Last name">
+    </div>
+  </div>
+    <br>
+
+    <!-- Email -->
+    <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+
+    <!-- Password -->
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+
+    <!-- ชื่อร้านค้า / บริษัท -->
+    <div class="form-group">
+    <label for="formGroupExampleInput">ชื่อร้านค้า / บริษัท</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="เช่น ABC Enterprise co.ltd">
+  </div>
+    <!-- สาขา -->
+  <div class="form-group">
+    <label for="formGroupExampleInput2">สาขา</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="เช่น เซ็นทรัล พระราม 7">
+  </div>
+
+    <!-- รายละเอียด -->
+    <div class="form-group">
+    <label for="formGroupExampleInput2">รายละเอียด คิวที่ต้องการ</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="เช่น ชนิดคิว 2 ชนิด 1. ฝาก/ถอน 2. เปิดบัญชี/ธุรกรรม">
+  </div>
+
+ <!-- Submit botton -->
+  <button type="submit" class="btn btn-primary">สมัคร สมาชิก</button>
+
+</form>
+<br>
+<br>
+{% endblock %}
