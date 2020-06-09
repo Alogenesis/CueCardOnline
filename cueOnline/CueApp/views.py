@@ -10,3 +10,6 @@ def info(request):
 
 def register(request):
     return render(request, 'register.html')
+
+def register(request):
+    return render(request, 'register_done.html')
