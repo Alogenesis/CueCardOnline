@@ -1,36 +1,56 @@
 {% extends 'layout.html' %}
 {% block content %}
 
-<form>
     <br>
     <h2>สมัครสมาชิกร้านค้า</h2>
     <br>
+{% if messages %} <!--เช็คว่ามี messages มั้ย ถ้าไม่มีไม่โชว์ -->
+<div class="alert alert-danger" role="alert">   <!--Bootstrap-->
+{% for i in messages %}     <!--For message alert show-->
+    <b>{{i}}</b>
+{% endfor %}
+</div>
+{% endif %}
     <br>
+<form action="addUser" method="post">
+    {% csrf_token %}        <!-- Error when add csrf_token -->
 
     <!-- ชื่อ นามสกุล -->
   <div class="row">
     <div class="col">
         <label for="formGroupExampleInput2">ชื่อ</label>
-      <input type="text" class="form-control" placeholder="First name">
+      <input type="text" class="form-control" placeholder="First name" name="firstname">
     </div>
     <div class="col">
         <label for="formGroupExampleInput2">นามสกุล</label>
-      <input type="text" class="form-control" placeholder="Last name">
+      <input type="text" class="form-control" placeholder="Last name" name="lastname">
     </div>
   </div>
     <br>
 
-    <!-- Email -->
+  <!-- Username -->
     <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <label for="exampleInputEmail1">Username</label>
+    <input type="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="username">
   </div>
 
     <!-- Password -->
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+  </div>
+
+      <!-- Re - Password -->
+  <div class="form-group">
+    <label for="exampleInputPassword1">Re - Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Type password again" name="repassword">
+  </div>
+
+      <!-- Email -->
+    <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email example : ABC@hotmail.com" name="email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
 
     <!-- ชื่อร้านค้า / บริษัท -->
