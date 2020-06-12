@@ -22,6 +22,6 @@ urlpatterns = [
     path('',views.index),
     path('info',views.info),
     path('register',views.register),
-    path('register_done',views.register_done),
+    path('registerdone',views.register_done),
 
 ]
