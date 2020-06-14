@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+    <br>
+    <h2>สมัครสมาชิกร้านค้า</h2>
+    <br>
+
+<form action="login_success" method="post">
+    {% csrf_token %}        <!-- Error when add csrf_token -->
+
+
+    <!-- Username -->
+    <div class="form-group">
+    <label for="exampleInputEmail1">Username</label>
+    <input type="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username">
+  </div>
+
+    <!-- Password -->
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+  </div>
+
+
+<!-- Submit botton -->
+  <button type="submit" class="btn btn-primary">สมัคร สมาชิก</button>
+
+
+</form>
+<br>
+<br>
+{% endblock %}
