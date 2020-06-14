@@ -14,10 +14,13 @@
   <br>
 <a href="http://127.0.0.1:8000/register"><button type="button" class="btn btn-success btn-lg btn-block">สมัครสมาชิก สำหรับร้านค้า</button></a>
   <br>
-<button type="button" class="btn btn-info btn-lg btn-block">ลงชื่อเข้าใช้ สำหรับร้านค้า</button>
-  <br>
+{% if user.is_authenticated %}
 <button type="button" class="btn btn-warning btn-lg btn-block">จัดการคิวของร้านค้า</button>
   <br>
+{% else %}
+<button type="button" class="btn btn-info btn-lg btn-block">ลงชื่อเข้าใช้ สำหรับร้านค้า</button>
+  <br>
+{% endif %}
 
 <!-- Footer -->
 <h2 align="center" style="color: #6600ff">ใช้เวลาของคุณให้คุ้มค่า</h2>
