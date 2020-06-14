@@ -28,6 +28,7 @@ urlpatterns = [
     path('registerdone',views.register_done),
     #path('404/', custom_page_not_found),
     path('cuetable',views.cue_table),
+    path('cue',views.customer_cue),
 
 
 

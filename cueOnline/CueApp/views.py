@@ -68,4 +68,7 @@ def register_done(request):
 def cue_table(request):
     return render(request, 'Cue_table.html')
 
+def customer_cue(request):
+    return render(request, 'customer_cue.html')
+
 
