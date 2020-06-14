@@ -72,6 +72,12 @@ def cue_table(request):
 def customer_cue(request):
     return render(request, 'customer_cue.html')
 
+def shop_admin(request):
+    return render(request, 'shop_admin.html')
+
+def shop_choose_cue(request):
+    return render(request, 'shop_choose_cue.html')
+
 #Log in
 def login(request):
     return render(request, 'login.html')
