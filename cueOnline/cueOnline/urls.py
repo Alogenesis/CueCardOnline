@@ -16,12 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from CueApp import views
+import django
+
+DEBUG = False
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index),
     path('info',views.info),
+    #path('register',views.register),
     path('register',views.register),
     path('registerdone',views.register_done),
+    #path('404/', custom_page_not_found),
+
+
 
 ]
