@@ -24,10 +24,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index),
     path('info',views.info),
-    #path('register',views.register),
     path('register',views.register),
     path('registerdone',views.register_done),
     #path('404/', custom_page_not_found),
+    path('cuetable',views.cue_table),
 
 
 

@@ -16,8 +16,8 @@ def info(request):
     return render(request, 'info.html')
 
 def register(request):
-    #return render(request, 'register.html')
-    return render(request, 'register_demo.html')
+    return render(request, 'register.html')
+    #return render(request, 'register_demo.html')
 
 def addUser(request):
     username = request.POST['username']
@@ -63,3 +63,9 @@ def addUser(request):
 
 def register_done(request):
     return render(request, 'register_done.html')
+
+#Cue Table
+def cue_table(request):
+    return render(request, 'Cue_table.html')
+
+
