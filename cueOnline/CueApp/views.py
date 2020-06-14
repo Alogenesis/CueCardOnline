@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,auth
+from django.contrib import messages
 import django
 from .models import Company
 
@@ -71,4 +72,25 @@ def cue_table(request):
 def customer_cue(request):
     return render(request, 'customer_cue.html')
 
+#Log in
+def login(request):
+    return render(request, 'login.html')
+#Log in Success
+def login_success(request):
+    username = request.POST['username']
+    password = request.POST['password']
 
+    #check username + password ว่าตรงกับที่เคยบันทึกมั้ย
+    user = auth.authenticate(username=username,password=password)
+
+    if user is not None :   #ถ้า user ไม่เป็น ว่าง ถือว่าผ่าน
+        auth.login(request,user)
+        return redirect('/')
+    else:   #ถ้า user เป็นว่าง คือ ไม่พบข้อมูลผู้ใช้
+        messages.info(request, 'ไม่พบข้อมูลผู้ใช้ หรือ รหัสผ่านผิด')
+        return redirect('/login')
+
+#Log Out
+def logout():
+    auth.logout(request)
+    return redirect('/')
