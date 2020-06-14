@@ -31,6 +31,7 @@ urlpatterns = [
     path('cue',views.customer_cue),
     path('login',views.login),
     path('login_success', views.login_success),
+    path('logout',views.logout),
 
 
 
