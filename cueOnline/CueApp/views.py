@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
+from django.contrib.auth import logout
 from django.contrib import messages
 import django
 from .models import Company
@@ -35,7 +36,7 @@ def addUser(request):
             first_name = firstname,
             last_name = lastname,
             )
-    User.save()
+    #User.save()
     return render(request, 'register_done.html')
 '''
     if password == repassword : #เช็คว่า password 2 ช่องตรงกันมั้ย ถ้าตรงไปต่อ
@@ -97,6 +98,5 @@ def login_success(request):
         return redirect('/login')
 
 #Log Out
-def logout():
-    auth.logout(request)
-    return redirect('/')
+def logout(request):
+    return logout(request)

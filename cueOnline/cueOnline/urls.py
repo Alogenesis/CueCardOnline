@@ -28,12 +28,13 @@ urlpatterns = [
     path('registerdone',views.register_done),
     #path('404/', custom_page_not_found),
     path('cuetable',views.cue_table),
+    path('addUser',views.addUser),
     path('cue',views.customer_cue),
     path('shopadmin',views.shop_admin),
     path('choosecue',views.shop_choose_cue),
     path('login',views.login),
     path('login_success', views.login_success),
-    path('logout',views.logout),
+    path('logout',views.logout, name = 'logout'),
 
 
 
