@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib.auth import logout
 from django.contrib import messages
+from django.contrib import auth
 import django
 from .models import Company
 
@@ -99,4 +100,5 @@ def login_success(request):
 
 #Log Out
 def logout(request):
-    return logout(request)
+    auth.logout(request)
+    return redirect('/login')

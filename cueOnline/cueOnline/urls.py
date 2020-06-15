@@ -22,7 +22,7 @@ DEBUG = False
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index),
+    path('',views.index, name = 'index'),
     path('info',views.info),
     path('register',views.register),
     path('registerdone',views.register_done),
