@@ -20,7 +20,7 @@ def info(request):
 
 def register(request):
     return render(request, 'register.html')
-    #return render(request, 'register_demo.html')
+    #return render(request, 'request_cue_form.html')
 
 def addUser(request):
     username = request.POST['username']
@@ -102,3 +102,19 @@ def login_success(request):
 def logout(request):
     auth.logout(request)
     return redirect('/login')
+
+#Cue request form
+def cue_request_form(request):
+    return render(request, 'request_cue_form.html')
+
+#Add Cue Request
+def add_cue_request(request):
+    company_name = request.POST['company']
+    branch = request.POST['branch']
+    requirement = request.POST['cuedetail']
+
+    User.create(
+        company_name=company_name,
+        branch=branch,
+        requirement=requirement,
+    )

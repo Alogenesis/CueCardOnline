@@ -35,6 +35,8 @@ urlpatterns = [
     path('login',views.login),
     path('login_success', views.login_success),
     path('logout',views.logout, name = 'logout'),
+    path('requestcueform',views.cue_request_form, name = 'requestcueform'),
+    path('add_cue_request',views.add_cue_request)
 
 
 

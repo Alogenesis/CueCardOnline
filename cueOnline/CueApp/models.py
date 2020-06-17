@@ -6,3 +6,8 @@ class Company(models.Model):
     branch = models.CharField(max_length=200)
     requirement = models.TextField()
 
+class Cue(models.Model):
+    cue_type = models.CharField(max_length=60)
+    cue_number = models.IntegerField()
+
+

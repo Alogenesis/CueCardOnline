@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2 align="center">ลงทะเบียน</h2>
+
+{% if messages %} <!--เช็คว่ามี messages มั้ย ถ้าไม่มีไม่โชว์ -->
+<div class="alert alert-danger" role="alert">   <!--Bootstrap-->
+{% for i in messages %}     <!--For message alert show-->
+    <b>{{i}}</b>
+{% endfor %}
+</div>
+{% endif %}
+
+<form action="add_cue_request" method="post">
+    {% csrf_token %}        <!-- Error when add csrf_token -->
+    <!-- Company -->
+    <div class="form-group">
+        <label for="">บริษัท</label>
+        <input type="text" class="form-control" placeholder='ชื่อบริษัท' name="company">
+    </div>
+    <!-- Branch -->
+    <div class="form-group">
+        <label for="">สาขา</label>
+        <input type="text" class="form-control" placeholder='สาขาที่ลงทะเบียน' name="branch">
+    </div>
+    <!-- Detail Cue -->
+    <div class="form-group">
+    <label for="exampleFormControlTextarea1">รายละเอียดคิวที่ต้องการ</label>
+    <input class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="เช่น ต้องการคิว 3 ชนิด คือ 1. ฝาก ถอน โอน จ่าย 2. เปิด/ปิด บัญชี 3. สินเชื่อ ธุรกรรมอื่นๆ" name="cuedetail"></textarea>
+  </div>
+
+
+    <!-- Submit botton -->
+    <input type="submit" value="ส่งคำร้อง" class="btn btn-primary">
+</form>
+
+{% endblock %}
