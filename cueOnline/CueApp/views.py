@@ -5,7 +5,7 @@ from django.contrib.auth import logout
 from django.contrib import messages
 from django.contrib import auth
 import django
-from .models import Company
+from .models import Company,Cue
 
 # Create your views here.
 #def custom_page_not_found(request): ยังแก้ปัญหา 404 หลัง register ไม่ได้
@@ -113,8 +113,14 @@ def add_cue_request(request):
     branch = request.POST['branch']
     requirement = request.POST['cuedetail']
 
-    User.create(
+    company = Company(
         company_name=company_name,
         branch=branch,
         requirement=requirement,
     )
+    company.save()
+    return redirect('/add_cue_request_done')
+
+#Add Cue Request Done
+def add_cue_request_done(request):
+    return render(request, 'request_cue_done.html')
