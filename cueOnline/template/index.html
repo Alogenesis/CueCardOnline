@@ -15,10 +15,10 @@
 <a href="http://127.0.0.1:8000/register"><button type="button" class="btn btn-success btn-lg btn-block">สมัครสมาชิก สำหรับร้านค้า</button></a>
   <br>
 {% if user.is_authenticated %}
-<button type="button" class="btn btn-warning btn-lg btn-block">จัดการคิวของร้านค้า</button>
+<a href="http://127.0.0.1:8000/shopadmin"><button type="button" class="btn btn-warning btn-lg btn-block">จัดการคิวของร้านค้า</button></a>
   <br>
 {% else %}
-<button type="button" class="btn btn-info btn-lg btn-block">ลงชื่อเข้าใช้ สำหรับร้านค้า</button>
+<a href="http://127.0.0.1:8000/login"><button type="button" class="btn btn-info btn-lg btn-block">ลงชื่อเข้าใช้ สำหรับร้านค้า</button></a>
   <br>
 {% endif %}
 
