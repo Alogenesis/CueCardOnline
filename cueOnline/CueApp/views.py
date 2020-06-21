@@ -72,10 +72,14 @@ def cue_table(request):
     return render(request, 'Cue_table.html')
 
 def customer_cue(request):
-    return render(request, 'customer_cue.html')
+    data = Cue.objects.all()
+    return render(request, 'customer_cue.html',{'cues':data})
 
 def shop_admin(request):
-    return render(request, 'shop_admin.html')
+    #Query Data Cue Table
+    data = Cue.objects.all()
+
+    return render(request, 'shop_admin.html', {'cues':data})
 
 def shop_choose_cue(request):
     return render(request, 'shop_choose_cue.html')
