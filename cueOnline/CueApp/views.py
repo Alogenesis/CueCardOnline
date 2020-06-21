@@ -78,8 +78,17 @@ def customer_cue(request):
 def shop_admin(request):
     #Query Data Cue Table
     data = Cue.objects.all()
-
     return render(request, 'shop_admin.html', {'cues':data})
+
+#Change Cue A ติดอยู่ ยังแก้ไม่ได้
+def change_cue_a(request):
+    #Save Cue A for update data
+    #data_a = Cue(cue_type='ฝาก ถอน โอน จ่าย',cue_number=2)
+    change_cue_a = request.POST['change_cue_a']
+    data_a = Cue.objects.filter.get(pk=1)(
+        cue_number = change_cue_a
+    )
+    data_a.save()
 
 def shop_choose_cue(request):
     return render(request, 'shop_choose_cue.html')

@@ -38,6 +38,8 @@ urlpatterns = [
     path('requestcueform',views.cue_request_form, name = 'requestcueform'),
     path('add_cue_request',views.add_cue_request),
     path('add_cue_request_done',views.add_cue_request_done),
+    #Change Cue
+    path('change_cue_a',views.change_cue_a, name = 'change_cue_a'),
 
 
 
