@@ -5,7 +5,7 @@ from django.contrib.auth import logout
 from django.contrib import messages
 from django.contrib import auth
 import django
-from .models import Company,Cue
+from .models import Company,Cue,Press_cue_A,Press_cue_B,Press_cue_C
 
 # Create your views here.
 #def custom_page_not_found(request): ยังแก้ปัญหา 404 หลัง register ไม่ได้
@@ -90,8 +90,18 @@ def change_cue_a(request):
     )
     data_a.save()
 
+# หน้าเลือกคิว
 def shop_choose_cue(request):
     return render(request, 'shop_choose_cue.html')
+
+# คำสั่งหน้าเลือกคิว
+def press_cue_a(request):
+    press_a = Press_cue_A(
+        cue_type = 'ฝาก ถอน โอน จ่าย'
+    )
+    press_a.save()
+    show_a = Press_cue_A.objects.last()
+    return render(request,'customer_cue.html', {'currentA':show_a})
 
 #Log in
 def login(request):
