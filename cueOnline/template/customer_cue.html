@@ -1,5 +1,7 @@
 {% extends 'layout.html' %}
 {% block content %}
+ <meta http-equiv="refresh" content="5" />
+
 
 <br> <!-- Header + QR Code -->
 <h2 align="center">ABC Bank Waiting for all life</h2>
@@ -75,6 +77,14 @@
     4. กรุณาอย่ากดคิวซ้ำๆ หากพบว่ามีการกดคิวซ้ำโดยไม่ถูกใช้งาน จะทำการปรับคิวละ 5000 บาท<br>
     5. เงื่อนไขอาจมีการเปลี่ยนแปลง ขึ้นอยู่กับสถาณการณ์ปัจจุบัน พนักงานจะทำการแจ้งให้ทราบ ณ จุดเรียกคิว<br>
 </div>
+
+
+<!-- Script สำหรับ refresh ทุก 10 วินาที -->
+<script>
+setTimeout(function(){
+   window.location.reload(1);
+}, 5000);
+</script>
 
 
 
