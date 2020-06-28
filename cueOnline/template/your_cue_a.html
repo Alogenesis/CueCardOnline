@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<!--content-->
+  <br>
+<div class="jumbotron" align="center">
+<h1 style="color : blue">บัตรคิวออนไลน์</h1>
+  <br>
+</div>
+
+<div class="alert alert-primary" role="alert">
+    <h3 style="color : navy" align="center">กรุณาอยาปิดหน้านี้ ก่อนได้รับบริการ?</h3> <br>
+<div style="color : navy; text-indent: 50px;">
+    <h4>คิวของคุณคือ</h4>
+    {% for i in currentA %}
+    {{ i.id }}
+    {% endfor  %}
+    <br>
+    <br>
+    <br>
+</div>
+</div>
+
+
+
+
+{% endblock %}

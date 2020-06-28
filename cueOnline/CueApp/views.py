@@ -97,11 +97,16 @@ def shop_choose_cue(request):
 # คำสั่งหน้าเลือกคิว
 def press_cue_a(request):
     press_a = Press_cue_A(
-        cue_type = 'ฝาก ถอน โอน จ่าย'
+        cue_type = "ฝาก ถอน โอน จ่าย"
     )
     press_a.save()
     show_a = Press_cue_A.objects.last()
-    return render(request,'customer_cue.html', {'currentA':show_a})
+    return render(request, 'your_cue_a.html', {'currentA':show_a})
+
+# โชว์คิวลูกค้า A ไม่ได้ใช้ ไว้สำหรับเช็คเฉยๆ
+def your_cue_a(request):
+    return render(request, 'your_cue_a.html',)
+
 
 #Log in
 def login(request):
