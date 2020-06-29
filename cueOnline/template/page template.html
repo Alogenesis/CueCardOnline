@@ -7,3 +7,76 @@
 
 
 {% endblock %}
+
+<!-- Code ไม่เอาแล้ว มาทิ้งในนี้ -->
+
+
+    <tr>
+      <th scope="row">2</th>
+      <td>เปิด / ปิด บัญชี</td>
+      <td>รอเอาตัวแปรมาใส่</td>
+
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>สินเชื่อ ธุรกรรมอื่นๆ</td>
+      <td>รอเอาตัวแปรมาใส่</td>
+    </tr>
+
+
+<!-- เปลี่ยนปุ่มเพิ่มคิว A -->
+<form class="form-inline" action="change_cue_a" method="post">
+    {% csrf_token %}
+  <div class="form-group mb-2">
+    <label for="" class="sr-only">เปลี่ยนคิว ชนิด A</label>
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="คิว : ฝาก ถอน โอน จ่าย" name="change_cue_a">
+  </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="inputPassword2" class="sr-only">เลขคิวถัดไป</label>
+    <input type="" class="form-control" id="inputPassword2" placeholder="เลขคิวที่ต้องการ">
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">เปลี่ยน</button>
+</form>
+<br>
+
+<!-- เปลี่ยนปุ่มเพิ่มคิว B -->
+<form class="form-inline">
+  <div class="form-group mb-2">
+    <label for="" class="sr-only">เปลี่ยนคิว ชนิด B</label>
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="คิว : เปิด / ปิด บัญชี">
+  </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="inputPassword2" class="sr-only">เลขคิวถัดไป</label>
+    <input type="" class="form-control" id="inputPassword2" placeholder="เลขคิวที่ต้องการ">
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">เปลี่ยน</button>
+</form>
+<br>
+
+<!-- เปลี่ยนปุ่มเพิ่มคิว B -->
+<form class="form-inline">
+  <div class="form-group mb-2">
+    <label for="" class="sr-only">เปลี่ยนคิว ชนิด C</label>
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="คิว : สินเชื่อ ธุรกรรมอื่นๆ">
+  </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="inputPassword2" class="sr-only">เลขคิวถัดไป</label>
+    <input type="" class="form-control" id="inputPassword2" placeholder="เลขคิวที่ต้องการ">
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">เปลี่ยน</button>
+</form>
+<br>
+
+<!-- ปุ่มเพิ่มคิว -->
+<button type="button" class="btn btn-primary">เพิ่มคิว A</button>
+<button type="button" class="btn btn-secondary">เพิ่มคิว B</button>
+<button type="button" class="btn btn-success">เพิ่มคิว C</button>
+<br>
+
+<!-- ปุ่มลดคิว -->
+<button type="button" class="btn btn-danger">ลดคิว A</button>
+<button type="button" class="btn btn-warning">ลดคิว B</button>
+<button type="button" class="btn btn-info">ลดคิว C</button>
+<br>
+<br>
+

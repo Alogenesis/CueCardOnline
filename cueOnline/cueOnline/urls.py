@@ -49,6 +49,9 @@ urlpatterns = [
     path('your_cue_b',views.your_cue_b, name = 'your_cue_b'),
     path('your_cue_c',views.your_cue_c, name = 'your_cue_c'),
 
+    #Change Cue Button action
+    path('change_cue_button',views.change_cue_button, name = 'change_cue_button'),
+
 
 
 ]

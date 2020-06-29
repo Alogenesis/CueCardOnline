@@ -5,11 +5,10 @@ from django.contrib.auth import logout
 from django.contrib import messages
 from django.contrib import auth
 import django
-from .models import Company,Cue,Press_cue_A,Press_cue_B,Press_cue_C
+from .models import Company,Cue,Press_cue_A,Press_cue_B,Press_cue_C,Current_Cue_A,Current_Cue_B,Current_Cue_C
 
 # Create your views here.
-#def custom_page_not_found(request): ยังแก้ปัญหา 404 หลัง register ไม่ได้
-#    return django.views.defaults.page_not_found(request, None)
+
 
 
 def index(request):
@@ -213,3 +212,17 @@ def add_cue_request(request):
 #Add Cue Request Done
 def add_cue_request_done(request):
     return render(request, 'request_cue_done.html')
+
+#แอดมินเปลี่ยนแปลงคิว
+#หน้าควบคุมคิว : ฟังก์ชั่นปุ่มกด + กรอกเลข ให้ gen ข้อมูลขึ้น database แล้ว redirect ตารางใหม่
+def change_cue_button(request):
+    number_input = request.GET['cue_input']
+    change_a = Current_Cue_A(
+        cue_type = 'ฝาก ถอน โอน จ่าย',
+        cue_number = number_input,
+    )
+    change_a.save()
+    cues = Current_Cue_A.objects.all()
+    return render(request, 'shop_admin.html', {'cues' : cues})
+
+
