@@ -43,9 +43,13 @@ urlpatterns = [
 
     #Choose Cue or Press Cue
     path('press_cue_a',views.press_cue_a, name = 'press_cue_a'),
+    path('press_cue_b',views.press_cue_a, name = 'press_cue_b'),
+    path('press_cue_c',views.press_cue_a, name = 'press_cue_c'),
 
     #Show Your Cue
     path('your_cue_a',views.your_cue_a, name = 'your_cue_a'),
+    path('your_cue_b',views.your_cue_b, name = 'your_cue_b'),
+    path('your_cue_c',views.your_cue_c, name = 'your_cue_c'),
 
 
 

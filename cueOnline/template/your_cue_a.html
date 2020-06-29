@@ -12,9 +12,11 @@
     <h3 style="color : navy" align="center">กรุณาอยาปิดหน้านี้ ก่อนได้รับบริการ?</h3> <br>
 <div style="color : navy; text-indent: 50px;">
     <h4>คิวของคุณคือ</h4>
-    {% for i in currentA %}
-    {{ i.id }}
+    <p>{% for i in currentA %}</p>
+    <p>{{ i.cue_type }}  ลำดับที่  {{ i.id }}</p>
+
     {% endfor  %}
+    </tr>
     <br>
     <br>
     <br>

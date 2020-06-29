@@ -96,11 +96,13 @@ def shop_choose_cue(request):
 
 # คำสั่งหน้าเลือกคิว A
 def press_cue_a(request):
+    '''
     press_a = Press_cue_A(
         cue_type = "ฝาก ถอน โอน จ่าย"
     )
     press_a.save()
-    show_a = Press_cue_A.objects.order_by('-id')[0]
+    '''
+    show_a = Press_cue_A.objects.all() #order_by('-id')[0]
     return render(request, 'your_cue_a.html', {'currentA':show_a})
 
 # โชว์คิวลูกค้า A ไม่ได้ใช้ ไว้สำหรับเช็คเฉยๆ
@@ -108,17 +110,30 @@ def your_cue_a(request):
     return render(request, 'your_cue_a.html',)
 
 # คำสั่งหน้าเลือกคิว B
-def press_cue_a(request):
+def press_cue_b(request):
     press_b = Press_cue_B(
-        cue_type = "ฝาก ถอน โอน จ่าย"
+        cue_type = "เปิด / ปิด บัญชี"
     )
     press_b.save()
-    show_b = Press_cue_B.objects.all()
-    return render(request, 'your_cue_b.html', )
+    #show_b = Press_cue_B.objects.all()
+    return render(request, 'your_cue_b.html')
 
 # โชว์คิวลูกค้า B ไม่ได้ใช้ ไว้สำหรับเช็คเฉยๆ
-def your_cue_a(request):
+def your_cue_b(request):
     return render(request, 'your_cue_b.html',)
+
+# คำสั่งหน้าเลือกคิว C
+def press_cue_c(request):
+    press_b = Press_cue_B(
+        cue_type = "สินเชื่อ ธุรกรรมอื่นๆ"
+    )
+    press_b.save()
+    show_c = Press_cue_C.objects.all()
+    return render(request, 'your_cue_c.html', )
+
+# โชว์คิวลูกค้า C ไม่ได้ใช้ ไว้สำหรับเช็คเฉยๆ
+def your_cue_c(request):
+    return render(request, 'your_cue_c.html',)
 
 
 #Log in
