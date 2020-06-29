@@ -94,7 +94,7 @@ def change_cue_a(request):
 def shop_choose_cue(request):
     return render(request, 'shop_choose_cue.html')
 
-# คำสั่งหน้าเลือกคิว A
+# คำสั่งหน้าเลือกคิว A Test part
 def press_cue_a(request):
 
     press_a = Press_cue_A(
@@ -105,35 +105,68 @@ def press_cue_a(request):
     show_a = Press_cue_A.objects.all()
     return render(request, 'your_cue_a.html', {'currentA':show_a})
 
-# โชว์คิวลูกค้า A ไม่ได้ใช้ ไว้สำหรับเช็คเฉยๆ
+# โชว์คิวลูกค้า A ไม่ได้ใช้ ไว้สำหรับเช็คเฉยๆ Test part
 def your_cue_a(request):
     return render(request, 'your_cue_a.html',)
 
-# คำสั่งหน้าเลือกคิว B
+# คำสั่งหน้าเลือกคิว B Test part
 def press_cue_b(request):
+
     press_b = Press_cue_B(
-        cue_type = "เปิด / ปิด บัญชี"
+        cue_type = "ฝาก ถอน โอน จ่าย"
     )
     press_b.save()
-    #show_b = Press_cue_B.objects.all()
-    return render(request, 'your_cue_b.html')
 
-# โชว์คิวลูกค้า B ไม่ได้ใช้ ไว้สำหรับเช็คเฉยๆ
+    show_b = Press_cue_B.objects.all()
+    return render(request, 'your_cue_b.html', {'currentB':show_b})
+
+# โชว์คิวลูกค้า B ไม่ได้ใช้ ไว้สำหรับเช็คเฉยๆ Test part
 def your_cue_b(request):
     return render(request, 'your_cue_b.html',)
 
-# คำสั่งหน้าเลือกคิว C
+# คำสั่งหน้าเลือกคิว C Test part
 def press_cue_c(request):
-    press_b = Press_cue_B(
-        cue_type = "สินเชื่อ ธุรกรรมอื่นๆ"
-    )
-    press_b.save()
-    show_c = Press_cue_C.objects.all()
-    return render(request, 'your_cue_c.html', )
 
-# โชว์คิวลูกค้า C ไม่ได้ใช้ ไว้สำหรับเช็คเฉยๆ
+    press_c = Press_cue_C(
+        cue_type = "ฝาก ถอน โอน จ่าย"
+    )
+    press_c.save()
+
+    show_c = Press_cue_C.objects.all()
+    return render(request, 'your_cue_c.html', {'currentC':show_c})
+
+# โชว์คิวลูกค้า C ไม่ได้ใช้ ไว้สำหรับเช็คเฉยๆ Test part
 def your_cue_c(request):
-    return render(request, 'your_cue_c.html',)
+    return render(request, 'your_cue_a.html',)
+
+# ทุกฟังก์ชั่นมารวมกัน
+def press_cue_all(request):
+    if request.GET:
+        if 'btn1' in request.GET:
+            press_a = Press_cue_A(
+               cue_type = "ฝาก ถอน โอน จ่าย"
+                )
+            press_a.save()
+
+            show_a = Press_cue_A.objects.all()
+            return render(request, 'your_cue_a.html', {'currentA':show_a})
+        elif 'btn2' in request.GET:
+            press_b = Press_cue_B(
+                cue_type="ฝาก ถอน โอน จ่าย"
+            )
+            press_b.save()
+
+            show_b = Press_cue_B.objects.all()
+            return render(request, 'your_cue_b.html', {'currentB': show_b})
+        elif 'btn3' in request.GET:
+            press_c = Press_cue_C(
+                cue_type="ฝาก ถอน โอน จ่าย"
+            )
+            press_c.save()
+
+            show_c = Press_cue_C.objects.all()
+            return render(request, 'your_cue_c.html', {'currentC': show_c})
+
 
 
 #Log in

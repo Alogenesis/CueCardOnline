@@ -42,9 +42,7 @@ urlpatterns = [
     path('change_cue_a',views.change_cue_a, name = 'change_cue_a'),
 
     #Choose Cue or Press Cue
-    path('press_cue_a',views.press_cue_a, name = 'press_cue_a'),
-    path('press_cue_b',views.press_cue_a, name = 'press_cue_b'),
-    path('press_cue_c',views.press_cue_a, name = 'press_cue_c'),
+    path('press_cue_all',views.press_cue_all, name = 'press_cue_all'),
 
     #Show Your Cue
     path('your_cue_a',views.your_cue_a, name = 'your_cue_a'),
