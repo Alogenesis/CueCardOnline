@@ -21,11 +21,13 @@
   </thead>
   <tbody>
   {% for i in cues %}
+  {% ifequal i len_cues %}
     <tr>
       <th scope="row">{{i.id}}</th>
       <td>{{i.cue_type}}</td>
       <td>{{i.cue_number}}</td>
     </tr>
+  {% endifequal %}
    {% endfor  %}
 
 

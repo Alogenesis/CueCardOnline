@@ -5,6 +5,7 @@ from django.contrib.auth import logout
 from django.contrib import messages
 from django.contrib import auth
 import django
+import operator
 from .models import Company,Cue,Press_cue_A,Press_cue_B,Press_cue_C,Current_Cue_A,Current_Cue_B,Current_Cue_C
 
 # Create your views here.
@@ -223,6 +224,7 @@ def change_cue_button(request):
     )
     change_a.save()
     cues = Current_Cue_A.objects.all()
-    return render(request, 'shop_admin.html', {'cues' : cues})
+    len_cues = cues.last()
+    return render(request, 'shop_admin.html', {'cues' : cues , 'len_cues':len_cues})
 
 
