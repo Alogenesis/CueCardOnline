@@ -72,13 +72,39 @@ def cue_table(request):
     return render(request, 'Cue_table.html')
 
 def customer_cue(request):
-    data = Cue.objects.all()
-    return render(request, 'customer_cue.html',{'cues':data})
+    #cue A
+    cues_a = Current_Cue_A.objects.all()
+    len_cues_a = cues_a.last()
+    #cue B
+    cues_b = Current_Cue_B.objects.all()
+    len_cues_b = cues_b.last()
+    # cue C
+    cues_c = Current_Cue_C.objects.all()
+    len_cues_c = cues_c.last()
+
+    return render(request, 'customer_cue.html', {'cues_a': cues_a, 'len_cues_a': len_cues_a,
+                                               'cues_b': cues_b, 'len_cues_b': len_cues_b,
+                                               'cues_c': cues_c, 'len_cues_c': len_cues_c,
+                                               })
+    #data = Cue.objects.all()
+    #return render(request, 'customer_cue.html',{'cues':data})
 
 def shop_admin(request):
     #Query Data Cue Table
-    data = Cue.objects.all()
-    return render(request, 'shop_admin.html', {'cues':data})
+    #cue A
+    cues_a = Current_Cue_A.objects.all()
+    len_cues_a = cues_a.last()
+    #cue B
+    cues_b = Current_Cue_B.objects.all()
+    len_cues_b = cues_b.last()
+    # cue C
+    cues_c = Current_Cue_C.objects.all()
+    len_cues_c = cues_c.last()
+
+    return render(request, 'shop_admin.html', {'cues_a': cues_a, 'len_cues_a': len_cues_a,
+                                               'cues_b': cues_b, 'len_cues_b': len_cues_b,
+                                               'cues_c': cues_c, 'len_cues_c': len_cues_c,
+                                               })
 
 #Change Cue A ติดอยู่ ยังแก้ไม่ได้
 def change_cue_a(request):
@@ -139,7 +165,7 @@ def press_cue_c(request):
 def your_cue_c(request):
     return render(request, 'your_cue_a.html',)
 
-# ทุกฟังก์ชั่นมารวมกัน
+# โชว์คิวลูกค้า : ทุกฟังก์ชั่นมารวมกัน
 def press_cue_all(request):
     if request.GET:
         if 'btn1' in request.GET:
@@ -152,7 +178,7 @@ def press_cue_all(request):
             return render(request, 'your_cue_a.html', {'currentA':show_a})
         elif 'btn2' in request.GET:
             press_b = Press_cue_B(
-                cue_type="ฝาก ถอน โอน จ่าย"
+                cue_type="เปิด / ปิด บัญชี"
             )
             press_b.save()
 
@@ -160,7 +186,7 @@ def press_cue_all(request):
             return render(request, 'your_cue_b.html', {'currentB': show_b})
         elif 'btn3' in request.GET:
             press_c = Press_cue_C(
-                cue_type="ฝาก ถอน โอน จ่าย"
+                cue_type="สินเชื่อ ธุรกรรมอื่นๆ"
             )
             press_c.save()
 
@@ -217,14 +243,30 @@ def add_cue_request_done(request):
 #แอดมินเปลี่ยนแปลงคิว
 #หน้าควบคุมคิว : ฟังก์ชั่นปุ่มกด + กรอกเลข ให้ gen ข้อมูลขึ้น database แล้ว redirect ตารางใหม่
 def change_cue_button(request):
-    number_input = request.GET['cue_input']
-    change_a = Current_Cue_A(
-        cue_type = 'ฝาก ถอน โอน จ่าย',
-        cue_number = number_input,
-    )
-    change_a.save()
-    cues = Current_Cue_A.objects.all()
-    len_cues = cues.last()
-    return render(request, 'shop_admin.html', {'cues' : cues , 'len_cues':len_cues})
+    if request.GET:
+        if 'change_cue_a_button' in request.GET:
+            number_input = request.GET['cue_input']
+            change_a = Current_Cue_A(
+                cue_type = 'ฝาก ถอน โอน จ่าย',
+                cue_number = number_input,
+            )
+            change_a.save()
+        elif 'change_cue_b_button' in request.GET:
+            number_input = request.GET['cue_input']
+            change_b = Current_Cue_B(
+                cue_type = 'เปิด / ปิด บัญชี',
+                cue_number = number_input,
+            )
+            change_b.save()
+        elif 'change_cue_c_button' in request.GET:
+            number_input = request.GET['cue_input']
+            change_c = Current_Cue_C(
+                cue_type = 'สินเชื่อ ธุรกรรมอื่นๆ',
+                cue_number = number_input,
+            )
+            change_c.save()
+    #cues = Current_Cue_A.objects.all()
+    #len_cues = cues.last()
+    return redirect('/shopadmin')
 
 
