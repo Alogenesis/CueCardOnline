@@ -28,18 +28,8 @@ def addUser(request):
     lastname = request.POST['lastname']
     email = request.POST['email']
     password = request.POST['password']
-    #repassword = request.POST['repassword']
+    repassword = request.POST['repassword']
 
-    User.objects.create_user(
-            username = username,
-            password = password,
-            email = email,
-            first_name = firstname,
-            last_name = lastname,
-            )
-    #User.save()
-    return render(request, 'register_done.html')
-'''
     if password == repassword : #เช็คว่า password 2 ช่องตรงกันมั้ย ถ้าตรงไปต่อ
         if User.objects.filter(username=username).exists(): #เช็คว่า username ซ้ำกับที่เคยลงไว้มั้ย
             messages.info(request,'Username นี้มีผู้ใช้แล้ว')
@@ -57,12 +47,24 @@ def addUser(request):
             first_name = firstname,
             last_name = lastname,
             )
-            User.save()
+            #User.save()
             return render(request, 'register_done.html')
     else:   #password ไม่ตรงกัน ลงทะเบียนใหม่
         messages.info(request, 'Password ไม่ตรงกัน')
         return redirect('/register')
+    
+''' Code เก่าตอนทดลอง
+    User.objects.create_user(
+            username = username,
+            password = password,
+            email = email,
+            first_name = firstname,
+            last_name = lastname,
+            )
+    #User.save()
+    return render(request, 'register_done.html')
 '''
+
 
 def register_done(request):
     return render(request, 'register_done.html')
