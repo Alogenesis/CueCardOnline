@@ -52,7 +52,7 @@ def addUser(request):
     else:   #password ไม่ตรงกัน ลงทะเบียนใหม่
         messages.info(request, 'Password ไม่ตรงกัน')
         return redirect('/register')
-    
+
 ''' Code เก่าตอนทดลอง
     User.objects.create_user(
             username = username,

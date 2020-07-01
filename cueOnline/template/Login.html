@@ -2,9 +2,16 @@
 {% block content %}
 
     <br>
-    <h2>สมัครสมาชิกร้านค้า</h2>
+    <h2>ลงชื่อเข้าใช้</h2>
     <br>
 
+{% if messages %} <!--เช็คว่ามี messages มั้ย ถ้าไม่มีไม่โชว์ -->
+<div class="alert alert-danger" role="alert">   <!--Bootstrap-->
+{% for i in messages %}     <!--For message alert show-->
+    <b>{{i}}</b>
+{% endfor %}
+</div>
+{% endif %}
 <form action="login_success" method="post">
     {% csrf_token %}        <!-- Error when add csrf_token -->
 
